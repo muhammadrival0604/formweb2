@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Form Login</title>
+  </head>
+
+  <body>
+    <form action="index.html" class="login-form">
+      <h1>Wilujeng Sumping</h1>
+
+      <div class="txt">
+        <input type="text" />
+        <span data-placeholder="Nama"></span>
+      </div>
+      <div class="txt">
+        <input type="password" />
+        <span data-placeholder="Kata Sandi"></span>
+      </div>
+
+      <input type="submit" class="logbtn" value="Masuk" />
+      <div class="bottom-text">Tidak punya akun? <a href="#">Daftar</a></div>
+    </form>
+
+    <script>
+      $('.txt input').on('focus', function () {
+        $(this).addClass('focus');
+      });
+      $('.txt input').on('blur', function () {
+        if ($(this).val() == '') $(this).removeClass('focus');
+      });
+    </script>
+    <body onload="createRain()">
+        <section id="rain" class="rain"></section>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+         <script>
+          var nbDrop = 800;
+          
+          function randRange(maxNum, minNum) {
+           return (Math.floor(Math.random(10) * (maxNum - minNum + 1)) + minNum);
+          }
+          
+          function createRain() {
+           for (i = 0; i < nbDrop; i++) {
+            
+            var dropLeft = randRange(0, 3000);
+            var dropTop = randRange(-1000, 1000);
+            $('.rain').append('<div class="drop" id="drop'+ i +'"></div>');
+            $('#drop' + i).css('left', dropLeft);
+            $('#drop' + i).css('top', dropTop); 
+           }
+          }
+         </script>
+  </body>
+</html>
